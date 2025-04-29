@@ -57,14 +57,7 @@ We're building this in the open — your ideas, rules, improvements, and languag
 📬 Contact
 Author: Elizabeth Wanjiku
 Email: elizanixie237@gmail.com
-Location: Kiambu, Kenya
+Location: Kenya
 
 🔖 License
 This project is open-source under the MIT License. Use, modify, and share freely.
-
-yaml
-Copy code
-
----
-
-Would you like a version tailored for GitHub Pages or with visual emojis for chapters too?
