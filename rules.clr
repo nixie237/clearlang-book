@@ -1,0 +1,14 @@
+SET mood TO "happy"
+SET time TO "7AM"
+SET tasks_done TO 2
+SET weather TO "raining"
+
+WHEN time IS "7AM" THEN remind "Start your day with a stretch"
+
+IF mood IS "happy" THEN remind "Keep smiling 😊"
+ELSE remind "Take a deep breath"
+
+IF weather IS "raining" THEN remind "Carry an umbrella ☔"
+
+IF tasks_done >= 3 THEN grant "Take a short break"
+ELSE remind "Complete one more task"
