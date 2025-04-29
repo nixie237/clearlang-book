@@ -23,17 +23,11 @@ examples/: Project examples showing practical use of ClearLang
 
 🚀 How to Use
 Install Python 3 on your computer.
-
 Clone this repository:
-
-bash
-Copy code
 git clone https://github.com/yourusername/clearlang-book.git
 cd clearlang-book
 Run the interpreter:
 
-bash
-Copy code
 python clearlang_interpreter.py
 You can edit rules.clr to try your own logic rules.
 
