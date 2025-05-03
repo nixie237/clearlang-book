@@ -1,3 +1,4 @@
+# Morning Setup
 SET mood TO "happy"
 SET time TO "7AM"
 SET tasks_done TO 2
@@ -12,3 +13,9 @@ IF weather IS "raining" THEN remind "Carry an umbrella ☔"
 
 IF tasks_done >= 3 THEN grant "Take a short break"
 ELSE remind "Complete one more task"
+
+# Task Status Check
+IF tasks_done >= 10 AND mood IS "determined" THEN say "You're crushing it!"
+IF tasks_done >= 5 AND tasks_done < 10 AND weather IS "sunny" THEN say "Perfect weather for productivity!"
+IF tasks_done < 5 THEN warn "You might be falling behind."
+ELSE remind "Keep pushing through"

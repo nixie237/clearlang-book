@@ -1,4 +1,4 @@
-# clearlang_interpreter.py
+# clearlang_interpreter.py (Points-Based Version)
 
 def load_rules(filename="rules.clr"):
     with open(filename, "r") as file:
@@ -17,25 +17,28 @@ def interpret_line(line, variables):
         run_action(line.replace("ELSE", "").strip(), variables)
 
 def evaluate_condition(condition, variables):
-    if " IS " in condition:
-        var, val = condition.split(" IS ")
+    if "POINTS ABOVE" in condition:
+        var, val = condition.split("POINTS ABOVE")
+        return int(variables.get(var.strip(), 0)) > int(val.strip())
+    elif "FLAG IS" in condition:
+        var, val = condition.split("FLAG IS")
         return variables.get(var.strip()) == val.strip('"')
-    elif ">=" in condition:
-        var, val = condition.split(">=")
-        return int(variables.get(var.strip(), 0)) >= int(val.strip())
+    elif " IS NOT " in condition:
+        var, val = condition.split(" IS NOT ")
+        return variables.get(var.strip()) != val.strip('"')
     return False
 
 def run_action(action, variables):
-    if action.startswith("remind"):
+    if action.startswith("alert"):
+        print("🚨 Alert:", action.replace("alert", "").strip('" '))
+    elif action.startswith("bonus"):
+        print("🎉 Bonus:", action.replace("bonus", "").strip('" '))
+    elif action.startswith("remind"):
         print("📝 Reminder:", action.replace("remind", "").strip('" '))
-    elif action.startswith("grant"):
-        print("✅ Granted:", action.replace("grant", "").strip('" '))
-    elif action.startswith("warn"):
-        print("⚠️ Warning:", action.replace("warn", "").strip('" '))
-    elif action.startswith("log"):
-        print("📋 Log:", action.replace("log", "").strip('" '))
     elif action.startswith("say"):
         print("💬", action.replace("say", "").strip('" '))
+    elif action.startswith("log"):
+        print("📋 Log:", action.replace("log", "").strip('" '))
 
 def main():
     rules = load_rules()
